@@ -94,7 +94,6 @@ export const getUserSuggestions = async (req,res) => {
     try{
         const userId = req.user._id
         const usersFollowedByMe = await userModel.findById(userId).select("followings")
-        console.log(usersFollowedByMe)
         const users = await userModel.aggregate([{
             $match:{
                 _id:{$ne:userId}
