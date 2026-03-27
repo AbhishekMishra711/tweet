@@ -5,7 +5,7 @@ import { generateTokenAndSetCookie } from "../utils/generateJWT.js";
 export const signup = async (req,res) => {
     try{
 
-        let {email,username,name,age,password} = req.body
+        let {email,username,name,age,password,gender} = req.body
 
         let emailregex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if(!emailregex.test(email)){
@@ -28,7 +28,8 @@ export const signup = async (req,res) => {
             password:hashedpassword,
             name,
             age,
-            username
+            username,
+            gender
         })
 
         await newUser.save()

@@ -20,6 +20,12 @@ const userSchema = new mongoose.Schema({
         required:true,
         min:0
     },
+    gender:{
+        type:String,
+        enum:["M","F","O"],
+        required:true
+    }
+    ,
     password:{
         type:String,
         required:true,
@@ -38,6 +44,14 @@ const userSchema = new mongoose.Schema({
     bio:{
         type:String,
         default:"" 
+    },
+    profileImage:{
+        type:String,
+        default:null
+    },
+    coverImage:{
+        type:String,
+        default:null
     }
 },
 {timestamps:true})
